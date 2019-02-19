@@ -49,6 +49,13 @@ public class CommonUtils {
     }
 
     /**
+     * 判断2个对象是否相等
+     */
+    public static boolean isEquals(Object a, Object b) {
+        return (a == null) ? (b == null) : a.equals(b);
+    }
+
+    /**
      * 检查是否有网络可用
      */
     public static boolean isNetworkConnected() {

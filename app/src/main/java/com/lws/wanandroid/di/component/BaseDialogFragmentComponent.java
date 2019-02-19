@@ -9,7 +9,6 @@ import dagger.android.AndroidInjector;
 @Subcomponent(modules = {AndroidInjectionModule.class})
 public interface BaseDialogFragmentComponent extends AndroidInjector<BaseDialogFragment> {
     @Subcomponent.Builder
-    abstract class BaseBuilder extends Builder<BaseDialogFragment> {
-
+    abstract class Builder extends AndroidInjector.Builder<BaseDialogFragment> {
     }
 }
