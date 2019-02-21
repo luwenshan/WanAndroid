@@ -17,6 +17,12 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
     }
 
     @Override
+    public void attachView(MainContract.View view) {
+        super.attachView(view);
+        registerEvent();
+    }
+
+    @Override
     public void setCurrentPage(int page) {
 
     }
@@ -28,6 +34,10 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
 
     @Override
     public void logout() {
+
+    }
+
+    private void registerEvent() {
 
     }
 }
