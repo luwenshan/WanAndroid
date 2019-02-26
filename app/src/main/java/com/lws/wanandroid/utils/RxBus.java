@@ -1,4 +1,4 @@
-package com.lws.wanandroid.component;
+package com.lws.wanandroid.utils;
 
 import io.reactivex.Flowable;
 import io.reactivex.processors.FlowableProcessor;

@@ -55,4 +55,9 @@ public abstract class BaseObserver<T> extends ResourceObserver<T> {
             mView.showError();
         }
     }
+
+    @Override
+    public void onComplete() {
+
+    }
 }

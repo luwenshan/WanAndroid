@@ -55,4 +55,9 @@ public abstract class BaseSubscribe<T> extends ResourceSubscriber<T> {
             mView.showError();
         }
     }
+
+    @Override
+    public void onComplete() {
+
+    }
 }

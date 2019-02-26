@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 
-import com.lws.wanandroid.component.ActivityCollector;
+import com.lws.wanandroid.utils.ActivityCollector;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;

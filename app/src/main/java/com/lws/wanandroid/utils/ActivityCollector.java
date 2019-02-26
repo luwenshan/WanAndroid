@@ -1,4 +1,4 @@
-package com.lws.wanandroid.component;
+package com.lws.wanandroid.utils;
 
 import android.app.Activity;
 import android.os.Process;
