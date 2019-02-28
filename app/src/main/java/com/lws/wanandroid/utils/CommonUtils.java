@@ -63,4 +63,9 @@ public class CommonUtils {
         assert connectivityManager != null;
         return connectivityManager.getActiveNetworkInfo() != null;
     }
+
+    @SuppressWarnings("unchecked")
+    public static <T> T cast(Object object) {
+        return (T) object;
+    }
 }

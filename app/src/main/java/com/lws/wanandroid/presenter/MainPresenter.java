@@ -42,7 +42,7 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
 
     @Override
     public void setNightModeState(boolean b) {
-        mDataManager.setNoImageState(b);
+        mDataManager.setNightModeState(b);
     }
 
     @Override

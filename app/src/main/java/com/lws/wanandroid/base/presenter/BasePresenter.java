@@ -10,7 +10,7 @@ public class BasePresenter<T extends IView> implements IPresenter<T> {
 
     protected T mView;
     private CompositeDisposable mCompositeDisposable;
-    private DataManager mDataManager;
+    protected DataManager mDataManager;
 
     public BasePresenter(DataManager dataManager) {
         mDataManager = dataManager;
