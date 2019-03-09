@@ -1,8 +1,9 @@
 package com.lws.wanandroid.core.bean.hierarchy;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class KnowledgeHierarchyData {
+public class KnowledgeHierarchyData implements Serializable {
 
     private int courseId;
     private int id;
