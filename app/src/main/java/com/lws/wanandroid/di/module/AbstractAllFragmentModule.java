@@ -6,6 +6,7 @@ import com.lws.wanandroid.ui.fragment.KnowledgeHierarchyFragment;
 import com.lws.wanandroid.ui.fragment.MainPagerFragment;
 import com.lws.wanandroid.ui.fragment.NavigationFragment;
 import com.lws.wanandroid.ui.fragment.ProjectFragment;
+import com.lws.wanandroid.ui.fragment.ProjectListFragment;
 import com.lws.wanandroid.ui.fragment.SettingFragment;
 import com.lws.wanandroid.ui.fragment.WxArticleFragment;
 
@@ -34,4 +35,7 @@ public abstract class AbstractAllFragmentModule {
 
     @ContributesAndroidInjector(modules = SettingFragmentModule.class)
     abstract SettingFragment contributesSettingFragmentInject();
+
+    @ContributesAndroidInjector(modules = ProjectListFragmentModule.class)
+    abstract ProjectListFragment contributesProjectListFragmentInject();
 }

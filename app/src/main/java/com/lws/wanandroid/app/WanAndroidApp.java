@@ -44,7 +44,7 @@ public class WanAndroidApp extends Application implements HasActivityInjector {
     private DaoSession mDaoSession;
     private RefWatcher mRefWatcher;
     public static boolean isFirstRun = true;
-    private static volatile AppComponent appComponent;
+    private static AppComponent appComponent;
 
     static {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
@@ -78,11 +78,11 @@ public class WanAndroidApp extends Application implements HasActivityInjector {
         super.onCreate();
         initGreenDao();
         instance = this;
-        DaggerAppComponent.builder()
+        appComponent = DaggerAppComponent.builder()
                 .appModule(new AppModule(instance))
                 .httpModule(new HttpModule())
-                .build()
-                .inject(this);
+                .build();
+        appComponent.inject(this);
 
         initLogger();
 

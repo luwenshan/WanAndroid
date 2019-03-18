@@ -1,6 +1,5 @@
 package com.lws.wanandroid.ui.fragment;
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -37,10 +36,7 @@ public class ProjectFragment extends BaseRootFragment<ProjectPresenter> implemen
     private int currentPage;
 
     public static ProjectFragment newInstance() {
-        Bundle args = new Bundle();
-        ProjectFragment fragment = new ProjectFragment();
-        fragment.setArguments(args);
-        return fragment;
+        return new ProjectFragment();
     }
 
     @Override
