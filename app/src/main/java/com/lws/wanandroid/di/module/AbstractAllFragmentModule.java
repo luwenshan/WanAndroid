@@ -9,6 +9,7 @@ import com.lws.wanandroid.ui.fragment.ProjectFragment;
 import com.lws.wanandroid.ui.fragment.ProjectListFragment;
 import com.lws.wanandroid.ui.fragment.SettingFragment;
 import com.lws.wanandroid.ui.fragment.WxArticleFragment;
+import com.lws.wanandroid.ui.fragment.WxDetailArticleFragment;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -38,4 +39,7 @@ public abstract class AbstractAllFragmentModule {
 
     @ContributesAndroidInjector(modules = ProjectListFragmentModule.class)
     abstract ProjectListFragment contributesProjectListFragmentInject();
+
+    @ContributesAndroidInjector(modules = WxDetailArticleFragmentModule.class)
+    abstract WxDetailArticleFragment contributesWxDetailArticleFragmentInject();
 }
