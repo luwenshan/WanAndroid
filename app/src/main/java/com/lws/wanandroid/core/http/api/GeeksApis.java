@@ -167,7 +167,6 @@ public interface GeeksApis {
      * @param id 文章id，拼接在链接中
      */
     @POST("lg/collect/{id}/json")
-    @FormUrlEncoded
     Observable<BaseResponse<FeedArticleListData>> addCollectArticle(@Path("id") int id);
 
     /**
@@ -187,7 +186,6 @@ public interface GeeksApis {
      * @param id 列表中文章的id
      */
     @POST("lg/uncollect_originId/{id}/json")
-    @FormUrlEncoded
     Observable<BaseResponse<FeedArticleListData>> cancelCollectArticle(@Path("id") int id);
 
     /**

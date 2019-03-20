@@ -364,7 +364,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     @Override
     public void showLogoutView() {
         mUsTv.setText(R.string.login_in);
-//        mUsTv.setOnClickListener(v -> startActivity(new Intent(this, LoginActivity.class)));
+        mUsTv.setOnClickListener(v -> startActivity(new Intent(this, LoginActivity.class)));
         if (mNavigationView == null) {
             return;
         }
