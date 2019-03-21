@@ -42,7 +42,7 @@ public abstract class BaseObserver<T> extends ResourceObserver<T> {
             return;
         }
         if (!TextUtils.isEmpty(mErrorMsg)) {
-            mView.showErrorMsg(mErrorMsg);
+            mView.showErrorMsg(mErrorMsg + e.getMessage());
         } else if (e instanceof ServerException) {
             mView.showErrorMsg(e.toString());
         } else if (e instanceof HttpException) {

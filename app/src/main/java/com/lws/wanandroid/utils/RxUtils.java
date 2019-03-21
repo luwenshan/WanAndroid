@@ -39,7 +39,7 @@ public class RxUtils {
                             && CommonUtils.isNetworkConnected()) {
                         return createObservable(baseResponse.getData());
                     } else {
-                        return Observable.error(new Exception());
+                        return Observable.error(new Exception(baseResponse.getErrorMsg()));
                     }
                 });
     }
