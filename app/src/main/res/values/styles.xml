@@ -45,7 +45,7 @@
 
     <!-- 设置Toolbar标题字体的大小 -->
     <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="android:textSize">@dimen/sp_16</item>
+        <item name="android:textSize">16sp</item>
     </style>
 
     <style name="myCorDialog" parent="android:style/Theme.Dialog">
