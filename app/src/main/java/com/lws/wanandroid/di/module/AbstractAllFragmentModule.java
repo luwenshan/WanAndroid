@@ -3,6 +3,7 @@ package com.lws.wanandroid.di.module;
 import com.lws.wanandroid.di.component.BaseFragmentComponent;
 import com.lws.wanandroid.ui.fragment.CollectFragment;
 import com.lws.wanandroid.ui.fragment.KnowledgeHierarchyFragment;
+import com.lws.wanandroid.ui.fragment.KnowledgeHierarchyListFragment;
 import com.lws.wanandroid.ui.fragment.MainPagerFragment;
 import com.lws.wanandroid.ui.fragment.NavigationFragment;
 import com.lws.wanandroid.ui.fragment.ProjectFragment;
@@ -42,4 +43,9 @@ public abstract class AbstractAllFragmentModule {
 
     @ContributesAndroidInjector(modules = WxDetailArticleFragmentModule.class)
     abstract WxDetailArticleFragment contributesWxDetailArticleFragmentInject();
+
+    @ContributesAndroidInjector(modules = KnowledgeHierarchyListFragmentModule.class)
+    abstract KnowledgeHierarchyListFragment contributesKnowledgeHierarchyListFragmentInject();
+
+
 }

@@ -77,7 +77,7 @@ public class WxDetailArticleFragment extends BaseRootFragment<WxDetailArticlePre
     @Override
     protected void initView() {
         super.initView();
-        mAdapter = new ArticleListAdapter(R.layout.item_search_pager, null);
+        mAdapter = new ArticleListAdapter(null);
         mAdapter.setOnItemClickListener((adapter, view, position) -> startArticleDetailPager(view, position));
         mAdapter.setOnItemChildClickListener((adapter, view, position) -> clickChildEvent(view, position));
         mRecyclerView.setLayoutManager(new LinearLayoutManager(_mActivity));

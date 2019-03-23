@@ -100,7 +100,7 @@ public class MainPagerFragment extends BaseRootFragment<MainPagerPresenter> impl
 
     private void initRecyclerView() {
         mFeedArticleDataList = new ArrayList<>();
-        mAdapter = new ArticleListAdapter(R.layout.item_search_pager, mFeedArticleDataList);
+        mAdapter = new ArticleListAdapter(mFeedArticleDataList);
         mAdapter.setOnItemClickListener((adapter, view, position) -> startArticleDetailPager(view, position));
         mAdapter.setOnItemChildClickListener((adapter, view, position) -> clickChildEvent(view, position));
         mRecyclerView.setLayoutManager(new LinearLayoutManager(_mActivity));

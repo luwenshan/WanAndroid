@@ -2,6 +2,7 @@ package com.lws.wanandroid.di.module;
 
 import com.lws.wanandroid.di.component.BaseActivityComponent;
 import com.lws.wanandroid.ui.activity.ArticleDetailActivity;
+import com.lws.wanandroid.ui.activity.KnowledgeHierarchyDetailActivity;
 import com.lws.wanandroid.ui.activity.LoginActivity;
 import com.lws.wanandroid.ui.activity.MainActivity;
 import com.lws.wanandroid.ui.activity.RegisterActivity;
@@ -26,4 +27,9 @@ public abstract class AbstractAllActivityModule {
 
     @ContributesAndroidInjector(modules = ArticleDetailActivityModule.class)
     abstract ArticleDetailActivity contributesArticleDetailActivityInjector();
+
+    @ContributesAndroidInjector(modules = KnowledgeHierarchyDetailActivityModule.class)
+    abstract KnowledgeHierarchyDetailActivity contributesKnowledgeHierarchyDetailActivityInjector();
+
+
 }

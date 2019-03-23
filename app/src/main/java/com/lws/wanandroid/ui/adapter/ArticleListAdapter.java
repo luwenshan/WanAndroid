@@ -21,8 +21,8 @@ public class ArticleListAdapter extends BaseQuickAdapter<FeedArticleData, Knowle
     private boolean isSearchPage;
     private boolean isNightMode;
 
-    public ArticleListAdapter(int layoutResId, @Nullable List<FeedArticleData> data) {
-        super(layoutResId, data);
+    public ArticleListAdapter(@Nullable List<FeedArticleData> data) {
+        super(R.layout.item_search_pager, data);
     }
 
     public void isCollectPage() {
