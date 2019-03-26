@@ -32,6 +32,7 @@ import com.lws.wanandroid.ui.fragment.MainPagerFragment;
 import com.lws.wanandroid.ui.fragment.NavigationFragment;
 import com.lws.wanandroid.ui.fragment.ProjectFragment;
 import com.lws.wanandroid.ui.fragment.SettingFragment;
+import com.lws.wanandroid.ui.fragment.UsageDialogFragment;
 import com.lws.wanandroid.ui.fragment.WxArticleFragment;
 import com.lws.wanandroid.utils.BottomNavigationViewHelper;
 import com.lws.wanandroid.utils.CommonAlertDialog;
@@ -68,6 +69,8 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     private NavigationFragment mNavigationFragment;
     private ProjectFragment mProjectFragment;
     private int mLastFgIndex;
+    private UsageDialogFragment usageDialogFragment;
+    private SearchDialogFragment searchDialogFragment;
 
     @Override
     protected void onDestroy() {
@@ -84,8 +87,9 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     protected void initToolbar() {
         setSupportActionBar(mToolbar);
         ActionBar actionBar = getSupportActionBar();
-        assert actionBar != null;
-        actionBar.setDisplayShowTitleEnabled(false);
+        if (actionBar != null) {
+            actionBar.setDisplayShowTitleEnabled(false);
+        }
         mTitleTv.setText(getString(R.string.home_pager));
         StatusBarUtil.setColor(this, ContextCompat.getColor(this, R.color.main_status_bar_blue), 255);
         mToolbar.setNavigationOnClickListener(v -> onBackPressedSupport());
@@ -119,8 +123,22 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_usage:
+                if (usageDialogFragment == null) {
+                    usageDialogFragment = new UsageDialogFragment();
+                }
+                if (!isDestroyed() && usageDialogFragment.isAdded()) {
+                    usageDialogFragment.dismiss();
+                }
+                usageDialogFragment.show(getSupportFragmentManager(), "UsageDialogFragment");
                 break;
             case R.id.action_search:
+                if (searchDialogFragment == null) {
+                    searchDialogFragment = new SearchDialogFragment();
+                }
+                if (!isDestroyed() && searchDialogFragment.isAdded()) {
+                    searchDialogFragment.dismiss();
+                }
+                searchDialogFragment.show(getSupportFragmentManager(), "SearchDialogFragment");
                 break;
             default:
                 break;
@@ -217,7 +235,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                 });
         mNavigationView.getMenu().findItem(R.id.nav_item_about_us)
                 .setOnMenuItemClickListener(item -> {
-//                    startActivity(new Intent(this, AboutUsActivity.class));
+                    startActivity(new Intent(this, AboutUsActivity.class));
                     return true;
                 });
         mNavigationView.getMenu().findItem(R.id.nav_item_logout)
