@@ -31,6 +31,7 @@ import com.lws.wanandroid.ui.fragment.KnowledgeHierarchyFragment;
 import com.lws.wanandroid.ui.fragment.MainPagerFragment;
 import com.lws.wanandroid.ui.fragment.NavigationFragment;
 import com.lws.wanandroid.ui.fragment.ProjectFragment;
+import com.lws.wanandroid.ui.fragment.SearchDialogFragment;
 import com.lws.wanandroid.ui.fragment.SettingFragment;
 import com.lws.wanandroid.ui.fragment.UsageDialogFragment;
 import com.lws.wanandroid.ui.fragment.WxArticleFragment;
