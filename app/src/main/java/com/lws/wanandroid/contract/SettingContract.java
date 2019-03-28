@@ -9,6 +9,14 @@ public interface SettingContract {
     }
 
     interface Presenter extends IPresenter<View> {
+        boolean getAutoCacheState();
 
+        void setAutoCacheState(boolean b);
+
+        boolean getNoImageState();
+
+        void setNoImageState(boolean b);
+
+        void setNightModeState(boolean b);
     }
 }
