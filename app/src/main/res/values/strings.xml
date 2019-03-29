@@ -2,6 +2,8 @@
     <string name="app_name">WanAndroid</string>
     <string name="awesome_wan_android">Awesome WanAndroid</string>
 
+    <string name="scale_down_show_behavior" translatable="false">com.lws.wanandroid.widget.behavior.ScaleDownShowBehavior</string>
+
     //Common
     <string name="http_error">network anomaly</string>
     <string name="unKnown_error">unKnown error</string>

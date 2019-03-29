@@ -9,7 +9,6 @@ import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
 import com.flyco.tablayout.SlidingTabLayout;
-import com.jaeger.library.StatusBarUtil;
 import com.lws.wanandroid.R;
 import com.lws.wanandroid.app.Constants;
 import com.lws.wanandroid.base.activity.BaseActivity;
@@ -18,6 +17,7 @@ import com.lws.wanandroid.contract.KnowledgeHierarchyDetailContract;
 import com.lws.wanandroid.core.bean.hierarchy.KnowledgeHierarchyData;
 import com.lws.wanandroid.presenter.KnowledgeHierarchyDetailPresenter;
 import com.lws.wanandroid.ui.fragment.KnowledgeHierarchyListFragment;
+import com.lws.wanandroid.utils.StatusBarUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +51,7 @@ public class KnowledgeHierarchyDetailActivity extends BaseActivity<KnowledgeHier
     protected void initToolbar() {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        StatusBarUtil.setColor(this, ContextCompat.getColor(this, R.color.main_status_bar_blue), 255);
+        StatusBarUtil.setStatusColor(getWindow(), ContextCompat.getColor(this, R.color.main_status_bar_blue), 1f);
         mToolbar.setNavigationOnClickListener(v -> onBackPressedSupport());
         if (getIntent().getBooleanExtra(Constants.IS_SINGLE_CHAPTER, false)) {
             startSingleChapterPager();

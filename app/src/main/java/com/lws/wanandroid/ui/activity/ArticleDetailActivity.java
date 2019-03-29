@@ -14,7 +14,6 @@ import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
-import com.jaeger.library.StatusBarUtil;
 import com.just.agentweb.AgentWeb;
 import com.lws.wanandroid.R;
 import com.lws.wanandroid.app.Constants;
@@ -25,6 +24,7 @@ import com.lws.wanandroid.event.CollectEvent;
 import com.lws.wanandroid.presenter.ArticleDetailPresenter;
 import com.lws.wanandroid.utils.CommonUtils;
 import com.lws.wanandroid.utils.RxBus;
+import com.lws.wanandroid.utils.StatusBarUtil;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import java.lang.reflect.Method;
@@ -77,7 +77,8 @@ public class ArticleDetailActivity extends BaseActivity<ArticleDetailPresenter> 
         getBundleData();
         mToolbar.setTitle(Html.fromHtml(title));
         setSupportActionBar(mToolbar);
-        StatusBarUtil.setTransparent(this);
+        StatusBarUtil.immersive(this);
+        StatusBarUtil.setPaddingSmart(this, mToolbar);
         mToolbar.setNavigationOnClickListener(v -> {
             if (isCollect) {
                 RxBus.getDefault().post(new CollectEvent(false));

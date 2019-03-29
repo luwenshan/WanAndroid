@@ -19,7 +19,6 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.jaeger.library.StatusBarUtil;
 import com.lws.wanandroid.R;
 import com.lws.wanandroid.app.Constants;
 import com.lws.wanandroid.base.activity.BaseActivity;
@@ -38,6 +37,7 @@ import com.lws.wanandroid.ui.fragment.WxArticleFragment;
 import com.lws.wanandroid.utils.BottomNavigationViewHelper;
 import com.lws.wanandroid.utils.CommonAlertDialog;
 import com.lws.wanandroid.utils.CommonUtils;
+import com.lws.wanandroid.utils.StatusBarUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -92,7 +92,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
             actionBar.setDisplayShowTitleEnabled(false);
         }
         mTitleTv.setText(getString(R.string.home_pager));
-        StatusBarUtil.setColor(this, ContextCompat.getColor(this, R.color.main_status_bar_blue), 255);
+        StatusBarUtil.setStatusColor(getWindow(), ContextCompat.getColor(this, R.color.main_status_bar_blue), 1f);
         mToolbar.setNavigationOnClickListener(v -> onBackPressedSupport());
     }
 

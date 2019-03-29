@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 
-import com.jaeger.library.StatusBarUtil;
 import com.jakewharton.rxbinding2.view.RxView;
 import com.lws.wanandroid.R;
 import com.lws.wanandroid.app.Constants;
@@ -16,6 +15,7 @@ import com.lws.wanandroid.base.activity.BaseActivity;
 import com.lws.wanandroid.contract.LoginContract;
 import com.lws.wanandroid.presenter.LoginPresenter;
 import com.lws.wanandroid.utils.CommonUtils;
+import com.lws.wanandroid.utils.StatusBarUtil;
 
 import java.util.concurrent.TimeUnit;
 
@@ -44,7 +44,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
 
     @Override
     protected void initToolbar() {
-        StatusBarUtil.setTransparent(this);
+        StatusBarUtil.immersive(this);
         mToolbar.setNavigationOnClickListener(v -> onBackPressedSupport());
     }
 

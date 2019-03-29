@@ -6,7 +6,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.jaeger.library.StatusBarUtil;
 import com.jakewharton.rxbinding2.view.RxView;
 import com.lws.wanandroid.R;
 import com.lws.wanandroid.app.Constants;
@@ -15,6 +14,7 @@ import com.lws.wanandroid.contract.RegisterContract;
 import com.lws.wanandroid.presenter.RegisterPresenter;
 import com.lws.wanandroid.utils.CommonUtils;
 import com.lws.wanandroid.utils.KeyboardUtil;
+import com.lws.wanandroid.utils.StatusBarUtil;
 
 import java.util.concurrent.TimeUnit;
 
@@ -42,7 +42,8 @@ public class RegisterActivity extends BaseActivity<RegisterPresenter> implements
 
     @Override
     protected void initToolbar() {
-        StatusBarUtil.setTransparent(this);
+        StatusBarUtil.immersive(this);
+        StatusBarUtil.setPaddingSmart(this, mToolbar);
         mToolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.register_bac));
         mTitleTv.setText(R.string.register);
         mTitleTv.setTextColor(ContextCompat.getColor(this, R.color.white));

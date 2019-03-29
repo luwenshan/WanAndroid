@@ -3,12 +3,12 @@ package com.lws.wanandroid.ui.activity;
 import android.content.Intent;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.jaeger.library.StatusBarUtil;
 import com.lws.wanandroid.R;
 import com.lws.wanandroid.app.WanAndroidApp;
 import com.lws.wanandroid.base.activity.BaseActivity;
 import com.lws.wanandroid.contract.SplashContract;
 import com.lws.wanandroid.presenter.SplashPresenter;
+import com.lws.wanandroid.utils.StatusBarUtil;
 
 import butterknife.BindView;
 
@@ -46,7 +46,7 @@ public class SplashActivity extends BaseActivity<SplashPresenter> implements Spl
             return;
         }
         WanAndroidApp.isFirstRun = false;
-        StatusBarUtil.setTransparent(this);
+        StatusBarUtil.immersive(this);
     }
 
     @Override
