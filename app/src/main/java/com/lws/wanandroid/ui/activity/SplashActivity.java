@@ -4,15 +4,15 @@ import android.content.Intent;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.lws.wanandroid.R;
-import com.lws.wanandroid.app.WanAndroidApp;
-import com.lws.wanandroid.base.activity.BaseActivity;
+import com.lws.wanandroid.app.App;
+import com.lws.wanandroid.base.activity.BaseMVPActivity;
 import com.lws.wanandroid.contract.SplashContract;
 import com.lws.wanandroid.presenter.SplashPresenter;
 import com.lws.wanandroid.utils.StatusBarUtil;
 
 import butterknife.BindView;
 
-public class SplashActivity extends BaseActivity<SplashPresenter> implements SplashContract.View {
+public class SplashActivity extends BaseMVPActivity<SplashPresenter> implements SplashContract.View {
     @BindView(R.id.one_animation)
     LottieAnimationView oneAnimation;
     @BindView(R.id.two_animation)
@@ -41,11 +41,11 @@ public class SplashActivity extends BaseActivity<SplashPresenter> implements Spl
 
     @Override
     protected void initToolbar() {
-        if (!WanAndroidApp.isFirstRun) {
+        if (!App.isFirstRun) {
             jumpToMain();
             return;
         }
-        WanAndroidApp.isFirstRun = false;
+        App.isFirstRun = false;
         StatusBarUtil.immersive(this);
     }
 

@@ -21,8 +21,8 @@ import android.widget.TextView;
 
 import com.lws.wanandroid.R;
 import com.lws.wanandroid.app.Constants;
-import com.lws.wanandroid.base.activity.BaseActivity;
-import com.lws.wanandroid.base.fragment.BaseFragment;
+import com.lws.wanandroid.base.activity.BaseMVPActivity;
+import com.lws.wanandroid.base.fragment.BaseMVPFragment;
 import com.lws.wanandroid.contract.MainContract;
 import com.lws.wanandroid.presenter.MainPresenter;
 import com.lws.wanandroid.ui.fragment.CollectFragment;
@@ -45,7 +45,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class MainActivity extends BaseActivity<MainPresenter> implements MainContract.View {
+public class MainActivity extends BaseMVPActivity<MainPresenter> implements MainContract.View {
 
     @BindView(R.id.drawer_layout)
     DrawerLayout mDrawerLayout;
@@ -62,7 +62,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     @BindView(R.id.fragment_group)
     FrameLayout mFrameGroup;
 
-    private List<BaseFragment> mFragments;
+    private List<BaseMVPFragment> mFragments;
     private TextView mUsTv;
     private MainPagerFragment mMainPagerFragment;
     private KnowledgeHierarchyFragment mKnowledgeHierarchyFragment;
@@ -397,7 +397,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         startActivity(new Intent(this, LoginActivity.class));
     }
 
-    private void loadPager(String title, int position, BaseFragment fragment, int pagerType) {
+    private void loadPager(String title, int position, BaseMVPFragment fragment, int pagerType) {
         mTitleTv.setText(title);
         switchFragment(position);
         fragment.reload();

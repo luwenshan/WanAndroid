@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.lws.wanandroid.R;
-import com.lws.wanandroid.core.dao.HistoryData;
+import com.lws.wanandroid.model.dao.HistoryData;
 import com.lws.wanandroid.utils.CommonUtils;
 
 import java.util.List;

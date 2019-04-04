@@ -7,18 +7,18 @@ import android.view.View;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.lws.wanandroid.R;
-import com.lws.wanandroid.core.bean.main.collect.FeedArticleData;
+import com.lws.wanandroid.model.bean.ArticleBean;
 import com.lws.wanandroid.utils.ImageLoader;
 
 import java.util.List;
 
-public class ProjectListAdapter extends BaseQuickAdapter<FeedArticleData, BaseViewHolder> {
-    public ProjectListAdapter(@Nullable List<FeedArticleData> data) {
+public class ProjectListAdapter extends BaseQuickAdapter<ArticleBean, BaseViewHolder> {
+    public ProjectListAdapter(@Nullable List<ArticleBean> data) {
         super(R.layout.item_project_list, data);
     }
 
     @Override
-    protected void convert(BaseViewHolder helper, FeedArticleData item) {
+    protected void convert(BaseViewHolder helper, ArticleBean item) {
         if (!TextUtils.isEmpty(item.getEnvelopePic())) {
             ImageLoader.load(mContext, item.getEnvelopePic(), helper.getView(R.id.item_project_list_iv));
         }

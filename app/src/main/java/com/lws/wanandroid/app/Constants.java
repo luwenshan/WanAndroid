@@ -12,7 +12,7 @@ public class Constants {
     /**
      * Path
      */
-    public static final String PATH_DATA = WanAndroidApp.getInstance().getCacheDir().getAbsolutePath() + File.separator + "data";
+    public static final String PATH_DATA = App.getInstance().getCacheDir().getAbsolutePath() + File.separator + "data";
     public static final String PATH_CACHE = PATH_DATA + "/NetCache";
 
     public static final int TYPE_MAIN_PAGER = 0;

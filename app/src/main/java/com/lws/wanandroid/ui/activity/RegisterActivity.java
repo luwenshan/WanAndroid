@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.jakewharton.rxbinding2.view.RxView;
 import com.lws.wanandroid.R;
 import com.lws.wanandroid.app.Constants;
-import com.lws.wanandroid.base.activity.BaseActivity;
+import com.lws.wanandroid.base.activity.BaseMVPActivity;
 import com.lws.wanandroid.contract.RegisterContract;
 import com.lws.wanandroid.presenter.RegisterPresenter;
 import com.lws.wanandroid.utils.CommonUtils;
@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 
-public class RegisterActivity extends BaseActivity<RegisterPresenter> implements RegisterContract.View {
+public class RegisterActivity extends BaseMVPActivity<RegisterPresenter> implements RegisterContract.View {
 
     @BindView(R.id.common_toolbar)
     Toolbar mToolbar;

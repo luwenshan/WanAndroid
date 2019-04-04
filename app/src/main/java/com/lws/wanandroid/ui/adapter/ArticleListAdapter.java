@@ -10,18 +10,18 @@ import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.lws.wanandroid.R;
-import com.lws.wanandroid.core.bean.main.collect.FeedArticleData;
+import com.lws.wanandroid.model.bean.ArticleBean;
 import com.lws.wanandroid.ui.viewholder.KnowledgeHierarchyListViewHolder;
 
 import java.util.List;
 
-public class ArticleListAdapter extends BaseQuickAdapter<FeedArticleData, KnowledgeHierarchyListViewHolder> {
+public class ArticleListAdapter extends BaseQuickAdapter<ArticleBean, KnowledgeHierarchyListViewHolder> {
 
     private boolean isCollectPage;
     private boolean isSearchPage;
     private boolean isNightMode;
 
-    public ArticleListAdapter(@Nullable List<FeedArticleData> data) {
+    public ArticleListAdapter(@Nullable List<ArticleBean> data) {
         super(R.layout.item_search_pager, data);
     }
 
@@ -41,7 +41,7 @@ public class ArticleListAdapter extends BaseQuickAdapter<FeedArticleData, Knowle
     }
 
     @Override
-    protected void convert(KnowledgeHierarchyListViewHolder helper, FeedArticleData article) {
+    protected void convert(KnowledgeHierarchyListViewHolder helper, ArticleBean article) {
         if (!TextUtils.isEmpty(article.getTitle())) {
             helper.setText(R.id.item_search_pager_title, Html.fromHtml(article.getTitle()));
         }
@@ -80,7 +80,7 @@ public class ArticleListAdapter extends BaseQuickAdapter<FeedArticleData, Knowle
         helper.addOnClickListener(R.id.item_search_pager_tag_red_tv);
     }
 
-    private void setTag(KnowledgeHierarchyListViewHolder helper, FeedArticleData article) {
+    private void setTag(KnowledgeHierarchyListViewHolder helper, ArticleBean article) {
         helper.getView(R.id.item_search_pager_tag_green_tv).setVisibility(View.GONE);
         helper.getView(R.id.item_search_pager_tag_red_tv).setVisibility(View.GONE);
         if (isCollectPage) {

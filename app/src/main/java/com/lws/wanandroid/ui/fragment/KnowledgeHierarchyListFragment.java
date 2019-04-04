@@ -9,10 +9,10 @@ import android.view.View;
 
 import com.lws.wanandroid.R;
 import com.lws.wanandroid.app.Constants;
-import com.lws.wanandroid.base.fragment.BaseRootFragment;
+import com.lws.wanandroid.base.fragment.BaseLoadingFragment;
 import com.lws.wanandroid.contract.KnowledgeHierarchyListContract;
-import com.lws.wanandroid.core.bean.main.collect.FeedArticleData;
-import com.lws.wanandroid.core.bean.main.collect.FeedArticleListData;
+import com.lws.wanandroid.model.bean.ArticleBean;
+import com.lws.wanandroid.model.bean.ArticleListBean;
 import com.lws.wanandroid.event.CollectEvent;
 import com.lws.wanandroid.event.SwitchNavigationEvent;
 import com.lws.wanandroid.event.SwitchProjectEvent;
@@ -26,7 +26,7 @@ import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
 import butterknife.BindView;
 
-public class KnowledgeHierarchyListFragment extends BaseRootFragment<KnowledgeHierarchyListPresenter>
+public class KnowledgeHierarchyListFragment extends BaseLoadingFragment<KnowledgeHierarchyListPresenter>
         implements KnowledgeHierarchyListContract.View {
 
     @BindView(R.id.normal_view)
@@ -83,7 +83,7 @@ public class KnowledgeHierarchyListFragment extends BaseRootFragment<KnowledgeHi
     }
 
     @Override
-    public void showKnowledgeHierarchyDetailData(FeedArticleListData feedArticleListData) {
+    public void showKnowledgeHierarchyDetailData(ArticleListBean feedArticleListData) {
         if (isRefresh) {
             mAdapter.replaceData(feedArticleListData.getDatas());
         } else {
@@ -97,14 +97,14 @@ public class KnowledgeHierarchyListFragment extends BaseRootFragment<KnowledgeHi
     }
 
     @Override
-    public void showCollectArticleData(int position, FeedArticleData feedArticleData, FeedArticleListData feedArticleListData) {
+    public void showCollectArticleData(int position, ArticleBean feedArticleData, ArticleListBean feedArticleListData) {
         mAdapter.setData(position, feedArticleData);
         RxBus.getDefault().post(new CollectEvent(false));
         CommonUtils.showSnackMessage(_mActivity, getString(R.string.collect_success));
     }
 
     @Override
-    public void showCancelCollectArticleData(int position, FeedArticleData feedArticleData, FeedArticleListData feedArticleListData) {
+    public void showCancelCollectArticleData(int position, ArticleBean feedArticleData, ArticleListBean feedArticleListData) {
         mAdapter.setData(position, feedArticleData);
         RxBus.getDefault().post(new CollectEvent(true));
         CommonUtils.showSnackMessage(_mActivity, getString(R.string.cancel_collect_success));
@@ -127,7 +127,7 @@ public class KnowledgeHierarchyListFragment extends BaseRootFragment<KnowledgeHi
     private void startArticleDetailPager(View view, int position) {
         articlePosition = position;
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(_mActivity, view, getString(R.string.share_view));
-        FeedArticleData data = mAdapter.getData().get(position);
+        ArticleBean data = mAdapter.getData().get(position);
         JudgeUtil.startArticleDetailActivity(_mActivity, options, data.getId(), data.getTitle().trim(),
                 data.getLink().trim(), data.isCollect(), false, false);
     }

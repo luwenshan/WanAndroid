@@ -1,11 +1,11 @@
 package com.lws.wanandroid.presenter;
 
 import com.lws.wanandroid.R;
-import com.lws.wanandroid.app.WanAndroidApp;
+import com.lws.wanandroid.app.App;
 import com.lws.wanandroid.base.presenter.BasePresenter;
 import com.lws.wanandroid.contract.NavigationContract;
-import com.lws.wanandroid.core.DataManager;
-import com.lws.wanandroid.core.bean.navigation.NavigationListData;
+import com.lws.wanandroid.model.DataManager;
+import com.lws.wanandroid.model.bean.NavigationListData;
 import com.lws.wanandroid.utils.RxUtils;
 import com.lws.wanandroid.widget.BaseObserver;
 
@@ -25,7 +25,7 @@ public class NavigationPresenter extends BasePresenter<NavigationContract.View> 
                 .compose(RxUtils.rxSchedulerHelper())
                 .compose(RxUtils.handleResult())
                 .subscribeWith(new BaseObserver<List<NavigationListData>>(mView,
-                        WanAndroidApp.getInstance().getString(R.string.failed_to_obtain_navigation_list),
+                        App.getInstance().getString(R.string.failed_to_obtain_navigation_list),
                         isShowError) {
                     @Override
                     public void onNext(List<NavigationListData> navigationListData) {

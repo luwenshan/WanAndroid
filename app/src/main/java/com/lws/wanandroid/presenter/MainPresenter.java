@@ -1,13 +1,13 @@
 package com.lws.wanandroid.presenter;
 
 import com.lws.wanandroid.R;
-import com.lws.wanandroid.app.WanAndroidApp;
+import com.lws.wanandroid.app.App;
 import com.lws.wanandroid.base.presenter.BasePresenter;
 import com.lws.wanandroid.utils.RxBus;
 import com.lws.wanandroid.contract.MainContract;
-import com.lws.wanandroid.core.DataManager;
-import com.lws.wanandroid.core.bean.main.login.LoginData;
-import com.lws.wanandroid.core.http.cookies.CookiesManager;
+import com.lws.wanandroid.model.DataManager;
+import com.lws.wanandroid.model.bean.LoginData;
+import com.lws.wanandroid.model.http.cookies.CookiesManager;
 import com.lws.wanandroid.event.AutoLoginEvent;
 import com.lws.wanandroid.event.LoginEvent;
 import com.lws.wanandroid.event.NightModeEvent;
@@ -15,7 +15,7 @@ import com.lws.wanandroid.event.SwitchNavigationEvent;
 import com.lws.wanandroid.event.SwitchProjectEvent;
 import com.lws.wanandroid.utils.RxUtils;
 import com.lws.wanandroid.widget.BaseObserver;
-import com.lws.wanandroid.widget.BaseSubscribe;
+import com.lws.wanandroid.widget.BaseSubscriber;
 
 import javax.inject.Inject;
 
@@ -50,7 +50,7 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
         addSubscribe(mDataManager.logout()
                 .compose(RxUtils.rxSchedulerHelper())
                 .compose(RxUtils.handlerLogoutResult())
-                .subscribeWith(new BaseObserver<LoginData>(mView, WanAndroidApp.getInstance().getString(R.string.logout_fail)) {
+                .subscribeWith(new BaseObserver<LoginData>(mView, App.getInstance().getString(R.string.logout_fail)) {
                     @Override
                     public void onNext(LoginData loginData) {
                         setLoginAccount("");
@@ -67,7 +67,7 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
         addSubscribe(RxBus.getDefault().toFlowable(NightModeEvent.class)
                 .compose(RxUtils.rxFlSchedulerHelper())
                 .map(NightModeEvent::isNightMode)
-                .subscribeWith(new BaseSubscribe<Boolean>(mView, WanAndroidApp.getInstance().getString(R.string.failed_to_cast_mode)) {
+                .subscribeWith(new BaseSubscriber<Boolean>(mView, App.getInstance().getString(R.string.failed_to_cast_mode)) {
                     @Override
                     public void onNext(Boolean aBoolean) {
                         mView.useNightMode(aBoolean);

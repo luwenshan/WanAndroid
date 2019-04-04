@@ -13,12 +13,12 @@ import android.widget.LinearLayout;
 
 import com.lws.wanandroid.R;
 import com.lws.wanandroid.app.Constants;
-import com.lws.wanandroid.base.fragment.BaseRootFragment;
+import com.lws.wanandroid.base.fragment.BaseLoadingFragment;
 import com.lws.wanandroid.contract.MainPagerContract;
-import com.lws.wanandroid.core.bean.main.banner.BannerData;
-import com.lws.wanandroid.core.bean.main.collect.FeedArticleData;
-import com.lws.wanandroid.core.bean.main.collect.FeedArticleListData;
-import com.lws.wanandroid.core.http.cookies.CookiesManager;
+import com.lws.wanandroid.model.bean.BannerBean;
+import com.lws.wanandroid.model.bean.ArticleBean;
+import com.lws.wanandroid.model.bean.ArticleListBean;
+import com.lws.wanandroid.model.http.cookies.CookiesManager;
 import com.lws.wanandroid.event.AutoLoginEvent;
 import com.lws.wanandroid.event.LoginEvent;
 import com.lws.wanandroid.event.SwitchNavigationEvent;
@@ -40,7 +40,7 @@ import java.util.List;
 
 import butterknife.BindView;
 
-public class MainPagerFragment extends BaseRootFragment<MainPagerPresenter> implements MainPagerContract.View {
+public class MainPagerFragment extends BaseLoadingFragment<MainPagerPresenter> implements MainPagerContract.View {
 
 
     @BindView(R.id.main_pager_recycler_view)
@@ -48,7 +48,7 @@ public class MainPagerFragment extends BaseRootFragment<MainPagerPresenter> impl
     @BindView(R.id.normal_view)
     SmartRefreshLayout mRefreshLayout;
 
-    private List<FeedArticleData> mFeedArticleDataList;
+    private List<ArticleBean> mFeedArticleDataList;
     private ArticleListAdapter mAdapter;
 
     private int articlePosition;
@@ -119,7 +119,7 @@ public class MainPagerFragment extends BaseRootFragment<MainPagerPresenter> impl
         // 记录点击的文章位置，便于在文章内点击收藏返回到此界面时能展示正确的收藏状态
         articlePosition = position;
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(_mActivity, view, getString(R.string.share_view));
-        FeedArticleData article = mAdapter.getData().get(position);
+        ArticleBean article = mAdapter.getData().get(position);
         JudgeUtil.startArticleDetailActivity(_mActivity,
                 options,
                 article.getId(),
@@ -232,7 +232,7 @@ public class MainPagerFragment extends BaseRootFragment<MainPagerPresenter> impl
     }
 
     @Override
-    public void showArticleList(FeedArticleListData feedArticleListData, boolean isRefresh) {
+    public void showArticleList(ArticleListBean feedArticleListData, boolean isRefresh) {
         if (mPresenter.getCurrentPage() == Constants.TYPE_MAIN_PAGER) {
             mRecyclerView.setVisibility(View.VISIBLE);
         } else {
@@ -252,23 +252,23 @@ public class MainPagerFragment extends BaseRootFragment<MainPagerPresenter> impl
     }
 
     @Override
-    public void showCollectArticleData(int position, FeedArticleData feedArticleData, FeedArticleListData feedArticleListData) {
+    public void showCollectArticleData(int position, ArticleBean feedArticleData, ArticleListBean feedArticleListData) {
         mAdapter.setData(position, feedArticleData);
         CommonUtils.showSnackMessage(_mActivity, getString(R.string.collect_success));
     }
 
     @Override
-    public void showCancelCollectArticleData(int position, FeedArticleData feedArticleData, FeedArticleListData feedArticleListData) {
+    public void showCancelCollectArticleData(int position, ArticleBean feedArticleData, ArticleListBean feedArticleListData) {
         mAdapter.setData(position, feedArticleData);
         CommonUtils.showSnackMessage(_mActivity, getString(R.string.cancel_collect_success));
     }
 
     @Override
-    public void showBannerData(List<BannerData> bannerDataList) {
+    public void showBannerData(List<BannerBean> bannerDataList) {
         mBannerTitleList = new ArrayList<>();
         List<String> bannerImageList = new ArrayList<>();
         mBannerUrlList = new ArrayList<>();
-        for (BannerData bannerData : bannerDataList) {
+        for (BannerBean bannerData : bannerDataList) {
             mBannerTitleList.add(bannerData.getTitle());
             bannerImageList.add(bannerData.getImagePath());
             mBannerUrlList.add(bannerData.getUrl());

@@ -2,7 +2,7 @@ package com.lws.wanandroid.contract;
 
 import com.lws.wanandroid.base.presenter.IPresenter;
 import com.lws.wanandroid.base.view.IView;
-import com.lws.wanandroid.core.bean.wx.WxAuthor;
+import com.lws.wanandroid.model.bean.WxAuthor;
 
 import java.util.List;
 

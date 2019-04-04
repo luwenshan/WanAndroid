@@ -16,10 +16,10 @@ import android.widget.TextView;
 
 import com.lws.wanandroid.R;
 import com.lws.wanandroid.app.Constants;
-import com.lws.wanandroid.base.activity.BaseRootActivity;
+import com.lws.wanandroid.base.activity.BaseLoadingActivity;
 import com.lws.wanandroid.contract.SearchListContract;
-import com.lws.wanandroid.core.bean.main.collect.FeedArticleData;
-import com.lws.wanandroid.core.bean.main.collect.FeedArticleListData;
+import com.lws.wanandroid.model.bean.ArticleBean;
+import com.lws.wanandroid.model.bean.ArticleListBean;
 import com.lws.wanandroid.event.SwitchNavigationEvent;
 import com.lws.wanandroid.event.SwitchProjectEvent;
 import com.lws.wanandroid.presenter.SearchListPresenter;
@@ -36,7 +36,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class SearchListActivity extends BaseRootActivity<SearchListPresenter> implements SearchListContract.View {
+public class SearchListActivity extends BaseLoadingActivity<SearchListPresenter> implements SearchListContract.View {
 
     @BindView(R.id.common_toolbar)
     Toolbar mToolbar;
@@ -51,7 +51,7 @@ public class SearchListActivity extends BaseRootActivity<SearchListPresenter> im
 
     private int articlePosition;
     private int mCurrentPage;
-    private List<FeedArticleData> mArticleList;
+    private List<ArticleBean> mArticleList;
     private ArticleListAdapter mAdapter;
     private boolean isAddData;
     private String searchText;
@@ -103,7 +103,7 @@ public class SearchListActivity extends BaseRootActivity<SearchListPresenter> im
     }
 
     @Override
-    public void showSearchList(FeedArticleListData feedArticleListData) {
+    public void showSearchList(ArticleListBean feedArticleListData) {
         mArticleList = feedArticleListData.getDatas();
         if (isAddData) {
             if (mArticleList.size() > 0) {
@@ -118,13 +118,13 @@ public class SearchListActivity extends BaseRootActivity<SearchListPresenter> im
     }
 
     @Override
-    public void showCollectArticleData(int position, FeedArticleData feedArticleData, FeedArticleListData feedArticleListData) {
+    public void showCollectArticleData(int position, ArticleBean feedArticleData, ArticleListBean feedArticleListData) {
         mAdapter.setData(position, feedArticleData);
         CommonUtils.showSnackMessage(this, getString(R.string.collect_success));
     }
 
     @Override
-    public void showCancelCollectArticleData(int position, FeedArticleData feedArticleData, FeedArticleListData feedArticleListData) {
+    public void showCancelCollectArticleData(int position, ArticleBean feedArticleData, ArticleListBean feedArticleListData) {
         mAdapter.setData(position, feedArticleData);
         CommonUtils.showSnackMessage(this, getString(R.string.cancel_collect_success));
     }

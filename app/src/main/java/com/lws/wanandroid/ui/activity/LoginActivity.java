@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 import com.jakewharton.rxbinding2.view.RxView;
 import com.lws.wanandroid.R;
 import com.lws.wanandroid.app.Constants;
-import com.lws.wanandroid.base.activity.BaseActivity;
+import com.lws.wanandroid.base.activity.BaseMVPActivity;
 import com.lws.wanandroid.contract.LoginContract;
 import com.lws.wanandroid.presenter.LoginPresenter;
 import com.lws.wanandroid.utils.CommonUtils;
@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class LoginActivity extends BaseActivity<LoginPresenter> implements LoginContract.View {
+public class LoginActivity extends BaseMVPActivity<LoginPresenter> implements LoginContract.View {
 
     @BindView(R.id.login_group)
     RelativeLayout mLoginGroup;

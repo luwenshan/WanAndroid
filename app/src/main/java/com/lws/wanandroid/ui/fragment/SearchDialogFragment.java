@@ -28,10 +28,10 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.jakewharton.rxbinding2.view.RxView;
 import com.lws.wanandroid.R;
 import com.lws.wanandroid.app.Constants;
-import com.lws.wanandroid.base.fragment.BaseDialogFragment;
+import com.lws.wanandroid.base.fragment.BaseMVPDialogFragment;
 import com.lws.wanandroid.contract.SearchContract;
-import com.lws.wanandroid.core.bean.main.search.TopSearchData;
-import com.lws.wanandroid.core.dao.HistoryData;
+import com.lws.wanandroid.model.bean.TopSearchData;
+import com.lws.wanandroid.model.dao.HistoryData;
 import com.lws.wanandroid.presenter.SearchPresenter;
 import com.lws.wanandroid.ui.adapter.HistorySearchAdapter;
 import com.lws.wanandroid.utils.CommonUtils;
@@ -50,7 +50,7 @@ import java.util.concurrent.TimeUnit;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class SearchDialogFragment extends BaseDialogFragment<SearchPresenter> implements
+public class SearchDialogFragment extends BaseMVPDialogFragment<SearchPresenter> implements
         SearchContract.View,
         CircularRevealAnim.AnimListener,
         ViewTreeObserver.OnPreDrawListener {

@@ -9,10 +9,10 @@ import android.view.View;
 import com.flyco.tablayout.SlidingTabLayout;
 import com.lws.wanandroid.R;
 import com.lws.wanandroid.app.Constants;
-import com.lws.wanandroid.base.fragment.BaseFragment;
-import com.lws.wanandroid.base.fragment.BaseRootFragment;
+import com.lws.wanandroid.base.fragment.BaseLoadingFragment;
+import com.lws.wanandroid.base.fragment.BaseMVPFragment;
 import com.lws.wanandroid.contract.WxContract;
-import com.lws.wanandroid.core.bean.wx.WxAuthor;
+import com.lws.wanandroid.model.bean.WxAuthor;
 import com.lws.wanandroid.event.JumpToTheTopEvent;
 import com.lws.wanandroid.presenter.WxArticlePresenter;
 import com.lws.wanandroid.utils.CommonUtils;
@@ -23,14 +23,14 @@ import java.util.List;
 
 import butterknife.BindView;
 
-public class WxArticleFragment extends BaseRootFragment<WxArticlePresenter> implements WxContract.View {
+public class WxArticleFragment extends BaseLoadingFragment<WxArticlePresenter> implements WxContract.View {
 
     @BindView(R.id.wx_detail_tab_layout)
     SlidingTabLayout mTabLayout;
     @BindView(R.id.wx_detail_viewpager)
     ViewPager mViewPager;
 
-    private List<BaseFragment> mFragments = new ArrayList<>();
+    private List<BaseMVPFragment> mFragments = new ArrayList<>();
 
     public static WxArticleFragment newInstance() {
         Bundle args = new Bundle();

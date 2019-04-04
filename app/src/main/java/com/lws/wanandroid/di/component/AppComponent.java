@@ -1,7 +1,7 @@
 package com.lws.wanandroid.di.component;
 
-import com.lws.wanandroid.app.WanAndroidApp;
-import com.lws.wanandroid.core.DataManager;
+import com.lws.wanandroid.app.App;
+import com.lws.wanandroid.model.DataManager;
 import com.lws.wanandroid.di.module.AbstractAllActivityModule;
 import com.lws.wanandroid.di.module.AbstractAllDialogFragmentModule;
 import com.lws.wanandroid.di.module.AbstractAllFragmentModule;
@@ -22,9 +22,9 @@ import dagger.android.support.AndroidSupportInjectionModule;
         AppModule.class,
         HttpModule.class})
 public interface AppComponent {
-    void inject(WanAndroidApp wanAndroidApp);
+    void inject(App wanAndroidApp);
 
-    WanAndroidApp getContext();
+    App getContext();
 
     DataManager getDataManager();
 }

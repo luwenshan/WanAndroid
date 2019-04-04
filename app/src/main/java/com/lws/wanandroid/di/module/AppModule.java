@@ -1,13 +1,13 @@
 package com.lws.wanandroid.di.module;
 
-import com.lws.wanandroid.app.WanAndroidApp;
-import com.lws.wanandroid.core.DataManager;
-import com.lws.wanandroid.core.db.DbHelper;
-import com.lws.wanandroid.core.db.DbHelperImpl;
-import com.lws.wanandroid.core.http.HttpHelper;
-import com.lws.wanandroid.core.http.HttpHelperImpl;
-import com.lws.wanandroid.core.prefs.PreferenceHelper;
-import com.lws.wanandroid.core.prefs.PreferenceHelperImpl;
+import com.lws.wanandroid.app.App;
+import com.lws.wanandroid.model.DataManager;
+import com.lws.wanandroid.model.db.DbHelper;
+import com.lws.wanandroid.model.db.DbHelperImpl;
+import com.lws.wanandroid.model.http.HttpHelper;
+import com.lws.wanandroid.model.http.HttpHelperImpl;
+import com.lws.wanandroid.model.prefs.PreferenceHelper;
+import com.lws.wanandroid.model.prefs.PreferenceHelperImpl;
 
 import javax.inject.Singleton;
 
@@ -16,15 +16,15 @@ import dagger.Provides;
 
 @Module
 public class AppModule {
-    private final WanAndroidApp mApp;
+    private final App mApp;
 
-    public AppModule(WanAndroidApp app) {
+    public AppModule(App app) {
         mApp = app;
     }
 
     @Provides
     @Singleton
-    WanAndroidApp provideApplicationContext() {
+    App provideApplicationContext() {
         return mApp;
     }
 

@@ -12,14 +12,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lws.wanandroid.R;
+import com.lws.wanandroid.app.App;
 import com.lws.wanandroid.app.Constants;
-import com.lws.wanandroid.app.WanAndroidApp;
 
 import java.util.Random;
 
 public class CommonUtils {
     public static int dp2px(float dpValue) {
-        final float scale = WanAndroidApp.getInstance().getResources().getDisplayMetrics().density;
+        final float scale = App.getInstance().getResources().getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);
     }
 
@@ -63,7 +63,7 @@ public class CommonUtils {
      * 检查是否有网络可用
      */
     public static boolean isNetworkConnected() {
-        ConnectivityManager connectivityManager = (ConnectivityManager) WanAndroidApp.getInstance().getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager connectivityManager = (ConnectivityManager) App.getInstance().getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
         assert connectivityManager != null;
         return connectivityManager.getActiveNetworkInfo() != null;
     }

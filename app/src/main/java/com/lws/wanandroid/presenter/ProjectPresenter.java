@@ -1,11 +1,11 @@
 package com.lws.wanandroid.presenter;
 
 import com.lws.wanandroid.R;
-import com.lws.wanandroid.app.WanAndroidApp;
+import com.lws.wanandroid.app.App;
 import com.lws.wanandroid.base.presenter.BasePresenter;
 import com.lws.wanandroid.contract.ProjectContract;
-import com.lws.wanandroid.core.DataManager;
-import com.lws.wanandroid.core.bean.project.ProjectClassifyData;
+import com.lws.wanandroid.model.DataManager;
+import com.lws.wanandroid.model.bean.ProjectClassifyData;
 import com.lws.wanandroid.utils.RxUtils;
 import com.lws.wanandroid.widget.BaseObserver;
 
@@ -25,7 +25,7 @@ public class ProjectPresenter extends BasePresenter<ProjectContract.View> implem
                 .compose(RxUtils.rxSchedulerHelper())
                 .compose(RxUtils.handleResult())
                 .subscribeWith(new BaseObserver<List<ProjectClassifyData>>(mView,
-                        WanAndroidApp.getInstance().getString(R.string.failed_to_obtain_project_classify_data)) {
+                        App.getInstance().getString(R.string.failed_to_obtain_project_classify_data)) {
                     @Override
                     public void onNext(List<ProjectClassifyData> projectClassifyData) {
                         mView.showProjectClassifyData(projectClassifyData);

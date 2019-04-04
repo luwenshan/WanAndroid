@@ -8,10 +8,10 @@ import android.view.View;
 import com.flyco.tablayout.SlidingTabLayout;
 import com.lws.wanandroid.R;
 import com.lws.wanandroid.app.Constants;
-import com.lws.wanandroid.base.fragment.BaseFragment;
-import com.lws.wanandroid.base.fragment.BaseRootFragment;
+import com.lws.wanandroid.base.fragment.BaseLoadingFragment;
+import com.lws.wanandroid.base.fragment.BaseMVPFragment;
 import com.lws.wanandroid.contract.ProjectContract;
-import com.lws.wanandroid.core.bean.project.ProjectClassifyData;
+import com.lws.wanandroid.model.bean.ProjectClassifyData;
 import com.lws.wanandroid.event.JumpToTheTopEvent;
 import com.lws.wanandroid.presenter.ProjectPresenter;
 import com.lws.wanandroid.utils.CommonUtils;
@@ -22,7 +22,7 @@ import java.util.List;
 
 import butterknife.BindView;
 
-public class ProjectFragment extends BaseRootFragment<ProjectPresenter> implements ProjectContract.View {
+public class ProjectFragment extends BaseLoadingFragment<ProjectPresenter> implements ProjectContract.View {
 
     @BindView(R.id.project_tab_layout)
     SlidingTabLayout mTabLayout;
@@ -32,7 +32,7 @@ public class ProjectFragment extends BaseRootFragment<ProjectPresenter> implemen
     ViewPager mViewPager;
 
     private List<ProjectClassifyData> mData;
-    private List<BaseFragment> mFragments = new ArrayList<>();
+    private List<BaseMVPFragment> mFragments = new ArrayList<>();
     private int currentPage;
 
     public static ProjectFragment newInstance() {

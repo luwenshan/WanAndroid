@@ -16,10 +16,10 @@ import android.widget.TextView;
 import com.jakewharton.rxbinding2.view.RxView;
 import com.lws.wanandroid.R;
 import com.lws.wanandroid.app.Constants;
-import com.lws.wanandroid.base.fragment.BaseRootFragment;
+import com.lws.wanandroid.base.fragment.BaseLoadingFragment;
 import com.lws.wanandroid.contract.WxDetailContract;
-import com.lws.wanandroid.core.bean.main.collect.FeedArticleData;
-import com.lws.wanandroid.core.bean.main.collect.FeedArticleListData;
+import com.lws.wanandroid.model.bean.ArticleBean;
+import com.lws.wanandroid.model.bean.ArticleListBean;
 import com.lws.wanandroid.event.CollectEvent;
 import com.lws.wanandroid.event.SwitchNavigationEvent;
 import com.lws.wanandroid.event.SwitchProjectEvent;
@@ -35,7 +35,7 @@ import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 
-public class WxDetailArticleFragment extends BaseRootFragment<WxDetailArticlePresenter> implements WxDetailContract.View {
+public class WxDetailArticleFragment extends BaseLoadingFragment<WxDetailArticlePresenter> implements WxDetailContract.View {
 
     @BindView(R.id.normal_view)
     SmartRefreshLayout mRefreshLayout;
@@ -146,7 +146,7 @@ public class WxDetailArticleFragment extends BaseRootFragment<WxDetailArticlePre
     }
 
     @Override
-    public void showWxSearchView(FeedArticleListData wxSearchData) {
+    public void showWxSearchView(ArticleListBean wxSearchData) {
         if (isRefresh) {
             mAdapter.replaceData(wxSearchData.getDatas());
         } else {
@@ -160,7 +160,7 @@ public class WxDetailArticleFragment extends BaseRootFragment<WxDetailArticlePre
     }
 
     @Override
-    public void showWxDetailView(FeedArticleListData wxSumData) {
+    public void showWxDetailView(ArticleListBean wxSumData) {
         if (isRefresh) {
             mAdapter.replaceData(wxSumData.getDatas());
         } else {
@@ -174,14 +174,14 @@ public class WxDetailArticleFragment extends BaseRootFragment<WxDetailArticlePre
     }
 
     @Override
-    public void showCollectArticleData(int position, FeedArticleData feedArticleData, FeedArticleListData feedArticleListData) {
+    public void showCollectArticleData(int position, ArticleBean feedArticleData, ArticleListBean feedArticleListData) {
         mAdapter.setData(position, feedArticleData);
         RxBus.getDefault().post(new CollectEvent(false));
         CommonUtils.showSnackMessage(_mActivity, getString(R.string.collect_success));
     }
 
     @Override
-    public void showCancelCollectArticleData(int position, FeedArticleData feedArticleData, FeedArticleListData feedArticleListData) {
+    public void showCancelCollectArticleData(int position, ArticleBean feedArticleData, ArticleListBean feedArticleListData) {
         mAdapter.setData(position, feedArticleData);
         RxBus.getDefault().post(new CollectEvent(true));
         CommonUtils.showSnackMessage(_mActivity, getString(R.string.cancel_collect_success));

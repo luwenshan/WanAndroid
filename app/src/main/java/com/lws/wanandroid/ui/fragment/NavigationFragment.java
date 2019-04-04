@@ -9,9 +9,9 @@ import android.widget.LinearLayout;
 
 import com.lws.wanandroid.R;
 import com.lws.wanandroid.app.Constants;
-import com.lws.wanandroid.base.fragment.BaseRootFragment;
+import com.lws.wanandroid.base.fragment.BaseLoadingFragment;
 import com.lws.wanandroid.contract.NavigationContract;
-import com.lws.wanandroid.core.bean.navigation.NavigationListData;
+import com.lws.wanandroid.model.bean.NavigationListData;
 import com.lws.wanandroid.presenter.NavigationPresenter;
 import com.lws.wanandroid.ui.adapter.NavigationAdapter;
 import com.lws.wanandroid.utils.CommonUtils;
@@ -25,7 +25,7 @@ import q.rorbin.verticaltablayout.adapter.TabAdapter;
 import q.rorbin.verticaltablayout.widget.ITabView;
 import q.rorbin.verticaltablayout.widget.TabView;
 
-public class NavigationFragment extends BaseRootFragment<NavigationPresenter> implements NavigationContract.View {
+public class NavigationFragment extends BaseLoadingFragment<NavigationPresenter> implements NavigationContract.View {
 
     @BindView(R.id.navigation_tab_layout)
     VerticalTabLayout mTabLayout;

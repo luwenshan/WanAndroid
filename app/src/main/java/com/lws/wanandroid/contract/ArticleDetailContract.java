@@ -2,14 +2,14 @@ package com.lws.wanandroid.contract;
 
 import com.lws.wanandroid.base.presenter.IPresenter;
 import com.lws.wanandroid.base.view.IView;
-import com.lws.wanandroid.core.bean.main.collect.FeedArticleListData;
+import com.lws.wanandroid.model.bean.ArticleListBean;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 public interface ArticleDetailContract {
     interface View extends IView {
-        void showCollectArticleData(FeedArticleListData feedArticleListData);
+        void showCollectArticleData(ArticleListBean feedArticleListData);
 
-        void showCancelCollectArticleData(FeedArticleListData feedArticleListData);
+        void showCancelCollectArticleData(ArticleListBean feedArticleListData);
 
         void shareEvent();
 

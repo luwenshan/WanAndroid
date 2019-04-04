@@ -2,9 +2,9 @@ package com.lws.wanandroid.contract;
 
 import com.lws.wanandroid.base.presenter.IPresenter;
 import com.lws.wanandroid.base.view.IView;
-import com.lws.wanandroid.core.bean.main.banner.BannerData;
-import com.lws.wanandroid.core.bean.main.collect.FeedArticleData;
-import com.lws.wanandroid.core.bean.main.collect.FeedArticleListData;
+import com.lws.wanandroid.model.bean.BannerBean;
+import com.lws.wanandroid.model.bean.ArticleBean;
+import com.lws.wanandroid.model.bean.ArticleListBean;
 
 import java.util.List;
 
@@ -14,13 +14,13 @@ public interface MainPagerContract {
 
         void showAutoLoginFail();
 
-        void showArticleList(FeedArticleListData feedArticleListData, boolean isRefresh);
+        void showArticleList(ArticleListBean feedArticleListData, boolean isRefresh);
 
-        void showCollectArticleData(int position, FeedArticleData feedArticleData, FeedArticleListData feedArticleListData);
+        void showCollectArticleData(int position, ArticleBean feedArticleData, ArticleListBean feedArticleListData);
 
-        void showCancelCollectArticleData(int position, FeedArticleData feedArticleData, FeedArticleListData feedArticleListData);
+        void showCancelCollectArticleData(int position, ArticleBean feedArticleData, ArticleListBean feedArticleListData);
 
-        void showBannerData(List<BannerData> bannerDataList);
+        void showBannerData(List<BannerBean> bannerDataList);
     }
 
     interface Presenter extends IPresenter<View> {
@@ -32,9 +32,9 @@ public interface MainPagerContract {
 
         void loadMoreData();
 
-        void addCollectArticle(int position, FeedArticleData feedArticleData);
+        void addCollectArticle(int position, ArticleBean feedArticleData);
 
-        void cancelCollectArticle(int position, FeedArticleData feedArticleData);
+        void cancelCollectArticle(int position, ArticleBean feedArticleData);
 
         void getBannerData(boolean isShowError);
 

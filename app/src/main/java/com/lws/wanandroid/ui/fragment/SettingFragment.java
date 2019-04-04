@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.lws.wanandroid.R;
 import com.lws.wanandroid.app.Constants;
-import com.lws.wanandroid.base.fragment.BaseFragment;
+import com.lws.wanandroid.base.fragment.BaseMVPFragment;
 import com.lws.wanandroid.contract.SettingContract;
 import com.lws.wanandroid.event.NightModeEvent;
 import com.lws.wanandroid.presenter.SettingPresenter;
@@ -22,7 +22,7 @@ import java.io.File;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class SettingFragment extends BaseFragment<SettingPresenter>
+public class SettingFragment extends BaseMVPFragment<SettingPresenter>
         implements SettingContract.View, CompoundButton.OnCheckedChangeListener {
 
     @BindView(R.id.cb_setting_cache)

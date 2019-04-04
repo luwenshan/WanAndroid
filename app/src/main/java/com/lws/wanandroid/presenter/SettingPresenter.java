@@ -2,7 +2,7 @@ package com.lws.wanandroid.presenter;
 
 import com.lws.wanandroid.base.presenter.BasePresenter;
 import com.lws.wanandroid.contract.SettingContract;
-import com.lws.wanandroid.core.DataManager;
+import com.lws.wanandroid.model.DataManager;
 
 import javax.inject.Inject;
 

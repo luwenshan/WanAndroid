@@ -10,9 +10,9 @@ import android.view.View;
 
 import com.lws.wanandroid.R;
 import com.lws.wanandroid.app.Constants;
-import com.lws.wanandroid.base.fragment.BaseRootFragment;
+import com.lws.wanandroid.base.fragment.BaseLoadingFragment;
 import com.lws.wanandroid.contract.KnowledgeHierarchyContract;
-import com.lws.wanandroid.core.bean.hierarchy.KnowledgeHierarchyData;
+import com.lws.wanandroid.model.bean.KnowledgeHierarchyData;
 import com.lws.wanandroid.presenter.KnowledgeHierarchyPresenter;
 import com.lws.wanandroid.ui.activity.KnowledgeHierarchyDetailActivity;
 import com.lws.wanandroid.ui.adapter.KnowledgeHierarchyAdapter;
@@ -23,7 +23,7 @@ import java.util.List;
 
 import butterknife.BindView;
 
-public class KnowledgeHierarchyFragment extends BaseRootFragment<KnowledgeHierarchyPresenter> implements KnowledgeHierarchyContract.View {
+public class KnowledgeHierarchyFragment extends BaseLoadingFragment<KnowledgeHierarchyPresenter> implements KnowledgeHierarchyContract.View {
 
     @BindView(R.id.rv_knowledge_hierarchy)
     RecyclerView mRecyclerView;

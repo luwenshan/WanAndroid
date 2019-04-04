@@ -4,7 +4,7 @@ import android.support.annotation.Nullable;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.lws.wanandroid.R;
-import com.lws.wanandroid.core.bean.hierarchy.KnowledgeHierarchyData;
+import com.lws.wanandroid.model.bean.KnowledgeHierarchyData;
 import com.lws.wanandroid.ui.viewholder.KnowledgeHierarchyViewHolder;
 import com.lws.wanandroid.utils.CommonUtils;
 

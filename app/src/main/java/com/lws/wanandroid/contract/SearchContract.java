@@ -2,8 +2,8 @@ package com.lws.wanandroid.contract;
 
 import com.lws.wanandroid.base.presenter.IPresenter;
 import com.lws.wanandroid.base.view.IView;
-import com.lws.wanandroid.core.bean.main.search.TopSearchData;
-import com.lws.wanandroid.core.dao.HistoryData;
+import com.lws.wanandroid.model.bean.TopSearchData;
+import com.lws.wanandroid.model.dao.HistoryData;
 
 import java.util.List;
 

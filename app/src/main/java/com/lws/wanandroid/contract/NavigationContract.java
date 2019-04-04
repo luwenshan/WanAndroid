@@ -2,7 +2,7 @@ package com.lws.wanandroid.contract;
 
 import com.lws.wanandroid.base.presenter.IPresenter;
 import com.lws.wanandroid.base.view.IView;
-import com.lws.wanandroid.core.bean.navigation.NavigationListData;
+import com.lws.wanandroid.model.bean.NavigationListData;
 
 import java.util.List;
 

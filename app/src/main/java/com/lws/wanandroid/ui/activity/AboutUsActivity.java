@@ -17,7 +17,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.lws.wanandroid.R;
-import com.lws.wanandroid.base.activity.AbstractSimpleActivity;
+import com.lws.wanandroid.base.activity.BaseSimpleActivity;
 import com.lws.wanandroid.utils.StatusBarUtil;
 import com.lws.wanandroid.widget.ElasticOutInterpolator;
 import com.scwang.smartrefresh.header.FlyRefreshHeader;
@@ -32,7 +32,7 @@ import com.scwang.smartrefresh.layout.util.DensityUtil;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class AboutUsActivity extends AbstractSimpleActivity {
+public class AboutUsActivity extends BaseSimpleActivity {
     @BindView(R.id.about_us_mountain)
     MountainSceneView mAboutUsMountain;
     @BindView(R.id.about_us_toolbar)

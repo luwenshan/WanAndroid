@@ -3,9 +3,9 @@ package com.lws.wanandroid.widget;
 import android.text.TextUtils;
 
 import com.lws.wanandroid.R;
-import com.lws.wanandroid.app.WanAndroidApp;
+import com.lws.wanandroid.app.App;
 import com.lws.wanandroid.base.view.IView;
-import com.lws.wanandroid.core.http.ServerException;
+import com.lws.wanandroid.model.http.ServerException;
 import com.lws.wanandroid.utils.LogHelper;
 
 import io.reactivex.observers.ResourceObserver;
@@ -46,9 +46,9 @@ public abstract class BaseObserver<T> extends ResourceObserver<T> {
         } else if (e instanceof ServerException) {
             mView.showErrorMsg(e.toString());
         } else if (e instanceof HttpException) {
-            mView.showErrorMsg(WanAndroidApp.getInstance().getString(R.string.http_error));
+            mView.showErrorMsg(App.getInstance().getString(R.string.http_error));
         } else {
-            mView.showErrorMsg(WanAndroidApp.getInstance().getString(R.string.unKnown_error));
+            mView.showErrorMsg(App.getInstance().getString(R.string.unKnown_error));
             LogHelper.d(e.toString());
         }
         if (isShowError) {

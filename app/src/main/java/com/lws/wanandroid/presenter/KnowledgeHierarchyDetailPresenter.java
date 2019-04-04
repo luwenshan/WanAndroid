@@ -2,7 +2,7 @@ package com.lws.wanandroid.presenter;
 
 import com.lws.wanandroid.base.presenter.BasePresenter;
 import com.lws.wanandroid.contract.KnowledgeHierarchyDetailContract;
-import com.lws.wanandroid.core.DataManager;
+import com.lws.wanandroid.model.DataManager;
 import com.lws.wanandroid.event.SwitchNavigationEvent;
 import com.lws.wanandroid.event.SwitchProjectEvent;
 import com.lws.wanandroid.utils.RxBus;

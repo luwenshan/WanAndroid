@@ -1,8 +1,8 @@
 package com.lws.wanandroid.utils;
 
-import com.lws.wanandroid.core.bean.BaseResponse;
-import com.lws.wanandroid.core.bean.main.collect.FeedArticleListData;
-import com.lws.wanandroid.core.bean.main.login.LoginData;
+import com.lws.wanandroid.model.bean.BaseResponse;
+import com.lws.wanandroid.model.bean.ArticleListBean;
+import com.lws.wanandroid.model.bean.LoginData;
 
 import io.reactivex.FlowableTransformer;
 import io.reactivex.Observable;
@@ -72,7 +72,7 @@ public class RxUtils {
                     if (baseResponse.getErrorCode() == BaseResponse.SUCCESS
                             && CommonUtils.isNetworkConnected()) {
                         //创建一个非空数据源，避免onNext()传入null
-                        return createObservable((T) new FeedArticleListData());
+                        return createObservable((T) new ArticleListBean());
                     } else {
                         return Observable.error(new Exception());
                     }

@@ -18,9 +18,9 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.lws.wanandroid.R;
-import com.lws.wanandroid.base.fragment.BaseDialogFragment;
+import com.lws.wanandroid.base.fragment.BaseMVPDialogFragment;
 import com.lws.wanandroid.contract.UsageDialogContract;
-import com.lws.wanandroid.core.bean.main.search.UsefulSiteData;
+import com.lws.wanandroid.model.bean.UsefulSiteData;
 import com.lws.wanandroid.presenter.UsageDialogPresenter;
 import com.lws.wanandroid.utils.CommonUtils;
 import com.lws.wanandroid.utils.JudgeUtil;
@@ -34,7 +34,7 @@ import java.util.List;
 
 import butterknife.BindView;
 
-public class UsageDialogFragment extends BaseDialogFragment<UsageDialogPresenter>
+public class UsageDialogFragment extends BaseMVPDialogFragment<UsageDialogPresenter>
         implements UsageDialogContract.View,
         CircularRevealAnim.AnimListener,
         ViewTreeObserver.OnPreDrawListener {

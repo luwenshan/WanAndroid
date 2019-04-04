@@ -5,8 +5,8 @@ import android.Manifest;
 import com.lws.wanandroid.R;
 import com.lws.wanandroid.base.presenter.BasePresenter;
 import com.lws.wanandroid.contract.ArticleDetailContract;
-import com.lws.wanandroid.core.DataManager;
-import com.lws.wanandroid.core.bean.main.collect.FeedArticleListData;
+import com.lws.wanandroid.model.DataManager;
+import com.lws.wanandroid.model.bean.ArticleListBean;
 import com.lws.wanandroid.utils.ResUtil;
 import com.lws.wanandroid.utils.RxUtils;
 import com.lws.wanandroid.widget.BaseObserver;
@@ -36,9 +36,9 @@ public class ArticleDetailPresenter extends BasePresenter<ArticleDetailContract.
         addSubscribe(mDataManager.addCollectArticle(id)
                 .compose(RxUtils.rxSchedulerHelper())
                 .compose(RxUtils.handleCollectResult())
-                .subscribeWith(new BaseObserver<FeedArticleListData>(mView, ResUtil.getString(R.string.collect_fail)) {
+                .subscribeWith(new BaseObserver<ArticleListBean>(mView, ResUtil.getString(R.string.collect_fail)) {
                     @Override
-                    public void onNext(FeedArticleListData feedArticleListData) {
+                    public void onNext(ArticleListBean feedArticleListData) {
                         mView.showCollectArticleData(feedArticleListData);
                     }
                 }));
@@ -49,10 +49,10 @@ public class ArticleDetailPresenter extends BasePresenter<ArticleDetailContract.
         addSubscribe(mDataManager.cancelCollectArticle(id)
                 .compose(RxUtils.rxSchedulerHelper())
                 .compose(RxUtils.handleCollectResult())
-                .subscribeWith(new BaseObserver<FeedArticleListData>(mView,
+                .subscribeWith(new BaseObserver<ArticleListBean>(mView,
                         ResUtil.getString(R.string.cancel_collect_fail)) {
                     @Override
-                    public void onNext(FeedArticleListData feedArticleListData) {
+                    public void onNext(ArticleListBean feedArticleListData) {
                         mView.showCancelCollectArticleData(feedArticleListData);
                     }
                 }));
@@ -63,10 +63,10 @@ public class ArticleDetailPresenter extends BasePresenter<ArticleDetailContract.
         addSubscribe(mDataManager.cancelCollectPageArticle(id)
                 .compose(RxUtils.rxSchedulerHelper())
                 .compose(RxUtils.handleCollectResult())
-                .subscribeWith(new BaseObserver<FeedArticleListData>(mView,
+                .subscribeWith(new BaseObserver<ArticleListBean>(mView,
                         ResUtil.getString(R.string.cancel_collect_fail)) {
                     @Override
-                    public void onNext(FeedArticleListData feedArticleListData) {
+                    public void onNext(ArticleListBean feedArticleListData) {
                         mView.showCancelCollectArticleData(feedArticleListData);
                     }
                 }));

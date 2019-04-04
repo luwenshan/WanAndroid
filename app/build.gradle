@@ -33,7 +33,7 @@ android {
 greendao {
     schemaVersion 1
     targetGenDir 'src/main/java'
-    daoPackage 'com.lws.wanandroid.core.dao'
+    daoPackage 'com.lws.wanandroid.model.dao'
 }
 
 dependencies {

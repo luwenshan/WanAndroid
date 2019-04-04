@@ -1,7 +1,7 @@
 package com.lws.wanandroid.base.presenter;
 
 import com.lws.wanandroid.base.view.IView;
-import com.lws.wanandroid.core.DataManager;
+import com.lws.wanandroid.model.DataManager;
 
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;

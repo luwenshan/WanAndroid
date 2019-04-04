@@ -5,9 +5,9 @@ import com.franmontiel.persistentcookiejar.PersistentCookieJar;
 import com.franmontiel.persistentcookiejar.cache.SetCookieCache;
 import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor;
 import com.lws.wanandroid.BuildConfig;
+import com.lws.wanandroid.app.App;
 import com.lws.wanandroid.app.Constants;
-import com.lws.wanandroid.app.WanAndroidApp;
-import com.lws.wanandroid.core.http.api.GeeksApis;
+import com.lws.wanandroid.model.http.api.GeeksApis;
 import com.lws.wanandroid.di.qualifier.WanAndroidUrl;
 import com.lws.wanandroid.utils.CommonUtils;
 
@@ -104,7 +104,7 @@ public class HttpModule {
         //错误重连
         builder.retryOnConnectionFailure(true);
         //cookie认证
-        builder.cookieJar(new PersistentCookieJar(new SetCookieCache(), new SharedPrefsCookiePersistor(WanAndroidApp.getInstance())));
+        builder.cookieJar(new PersistentCookieJar(new SetCookieCache(), new SharedPrefsCookiePersistor(App.getInstance())));
         return builder.build();
     }
 

@@ -17,9 +17,9 @@ import android.widget.LinearLayout;
 import com.just.agentweb.AgentWeb;
 import com.lws.wanandroid.R;
 import com.lws.wanandroid.app.Constants;
-import com.lws.wanandroid.base.activity.BaseActivity;
+import com.lws.wanandroid.base.activity.BaseMVPActivity;
 import com.lws.wanandroid.contract.ArticleDetailContract;
-import com.lws.wanandroid.core.bean.main.collect.FeedArticleListData;
+import com.lws.wanandroid.model.bean.ArticleListBean;
 import com.lws.wanandroid.event.CollectEvent;
 import com.lws.wanandroid.presenter.ArticleDetailPresenter;
 import com.lws.wanandroid.utils.CommonUtils;
@@ -31,7 +31,7 @@ import java.lang.reflect.Method;
 
 import butterknife.BindView;
 
-public class ArticleDetailActivity extends BaseActivity<ArticleDetailPresenter> implements ArticleDetailContract.View {
+public class ArticleDetailActivity extends BaseMVPActivity<ArticleDetailPresenter> implements ArticleDetailContract.View {
 
     @BindView(R.id.article_detail_toolbar)
     Toolbar mToolbar;
@@ -194,7 +194,7 @@ public class ArticleDetailActivity extends BaseActivity<ArticleDetailPresenter> 
     }
 
     @Override
-    public void showCollectArticleData(FeedArticleListData feedArticleListData) {
+    public void showCollectArticleData(ArticleListBean feedArticleListData) {
         isCollect = true;
         mCollectItem.setTitle(R.string.cancel_collect);
         mCollectItem.setIcon(R.mipmap.ic_toolbar_like_p);
@@ -202,7 +202,7 @@ public class ArticleDetailActivity extends BaseActivity<ArticleDetailPresenter> 
     }
 
     @Override
-    public void showCancelCollectArticleData(FeedArticleListData feedArticleListData) {
+    public void showCancelCollectArticleData(ArticleListBean feedArticleListData) {
         isCollect = false;
         if (!isCollectPage) {
             mCollectItem.setTitle(R.string.collect);

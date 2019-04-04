@@ -11,10 +11,10 @@ import android.widget.TextView;
 import com.flyco.tablayout.SlidingTabLayout;
 import com.lws.wanandroid.R;
 import com.lws.wanandroid.app.Constants;
-import com.lws.wanandroid.base.activity.BaseActivity;
-import com.lws.wanandroid.base.fragment.BaseFragment;
+import com.lws.wanandroid.base.activity.BaseMVPActivity;
+import com.lws.wanandroid.base.fragment.BaseMVPFragment;
 import com.lws.wanandroid.contract.KnowledgeHierarchyDetailContract;
-import com.lws.wanandroid.core.bean.hierarchy.KnowledgeHierarchyData;
+import com.lws.wanandroid.model.bean.KnowledgeHierarchyData;
 import com.lws.wanandroid.presenter.KnowledgeHierarchyDetailPresenter;
 import com.lws.wanandroid.ui.fragment.KnowledgeHierarchyListFragment;
 import com.lws.wanandroid.utils.StatusBarUtil;
@@ -24,7 +24,7 @@ import java.util.List;
 
 import butterknife.BindView;
 
-public class KnowledgeHierarchyDetailActivity extends BaseActivity<KnowledgeHierarchyDetailPresenter>
+public class KnowledgeHierarchyDetailActivity extends BaseMVPActivity<KnowledgeHierarchyDetailPresenter>
         implements KnowledgeHierarchyDetailContract.View {
 
     @BindView(R.id.common_toolbar)
@@ -39,7 +39,7 @@ public class KnowledgeHierarchyDetailActivity extends BaseActivity<KnowledgeHier
     FloatingActionButton mFloatingActionButton;
 
     private List<KnowledgeHierarchyData> knowledgeHierarchyDataList;
-    private List<BaseFragment> mFragments = new ArrayList<>();
+    private List<BaseMVPFragment> mFragments = new ArrayList<>();
     private String chapterName;
 
     @Override

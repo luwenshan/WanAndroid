@@ -10,11 +10,11 @@ import android.view.View;
 
 import com.lws.wanandroid.R;
 import com.lws.wanandroid.app.Constants;
-import com.lws.wanandroid.base.fragment.BaseRootFragment;
+import com.lws.wanandroid.base.fragment.BaseLoadingFragment;
 import com.lws.wanandroid.contract.ProjectListContract;
-import com.lws.wanandroid.core.bean.main.collect.FeedArticleData;
-import com.lws.wanandroid.core.bean.main.collect.FeedArticleListData;
-import com.lws.wanandroid.core.bean.project.ProjectListData;
+import com.lws.wanandroid.model.bean.ArticleBean;
+import com.lws.wanandroid.model.bean.ArticleListBean;
+import com.lws.wanandroid.model.bean.ProjectListData;
 import com.lws.wanandroid.presenter.ProjectListPresenter;
 import com.lws.wanandroid.ui.adapter.ProjectListAdapter;
 import com.lws.wanandroid.utils.CommonUtils;
@@ -26,7 +26,7 @@ import java.util.List;
 
 import butterknife.BindView;
 
-public class ProjectListFragment extends BaseRootFragment<ProjectListPresenter> implements ProjectListContract.View {
+public class ProjectListFragment extends BaseLoadingFragment<ProjectListPresenter> implements ProjectListContract.View {
 
     @BindView(R.id.normal_view)
     SmartRefreshLayout mRefreshLayout;
@@ -54,7 +54,7 @@ public class ProjectListFragment extends BaseRootFragment<ProjectListPresenter> 
     @Override
     protected void initView() {
         super.initView();
-        List<FeedArticleData> mDatas = new ArrayList<>();
+        List<ArticleBean> mDatas = new ArrayList<>();
         mAdapter = new ProjectListAdapter(mDatas);
         mAdapter.setOnItemClickListener((adapter, view, position) -> startProjectPager(position));
         mAdapter.setOnItemChildClickListener((adapter, view, position) -> clickChildEvent(view, position));
@@ -102,13 +102,13 @@ public class ProjectListFragment extends BaseRootFragment<ProjectListPresenter> 
     }
 
     @Override
-    public void showCollectOutsideArticle(int position, FeedArticleData feedArticleData, FeedArticleListData feedArticleListData) {
+    public void showCollectOutsideArticle(int position, ArticleBean feedArticleData, ArticleListBean feedArticleListData) {
         mAdapter.setData(position, feedArticleData);
         CommonUtils.showSnackMessage(_mActivity, getString(R.string.collect_success));
     }
 
     @Override
-    public void showCancelCollectArticleData(int position, FeedArticleData feedArticleData, FeedArticleListData feedArticleListData) {
+    public void showCancelCollectArticleData(int position, ArticleBean feedArticleData, ArticleListBean feedArticleListData) {
         mAdapter.setData(position, feedArticleData);
         CommonUtils.showSnackMessage(_mActivity, getString(R.string.cancel_collect_success));
     }

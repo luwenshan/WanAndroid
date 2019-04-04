@@ -2,7 +2,7 @@ package com.lws.wanandroid.contract;
 
 import com.lws.wanandroid.base.presenter.IPresenter;
 import com.lws.wanandroid.base.view.IView;
-import com.lws.wanandroid.core.bean.main.search.UsefulSiteData;
+import com.lws.wanandroid.model.bean.UsefulSiteData;
 
 import java.util.List;
 

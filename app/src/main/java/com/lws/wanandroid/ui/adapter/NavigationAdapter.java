@@ -10,8 +10,8 @@ import android.widget.TextView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.lws.wanandroid.R;
-import com.lws.wanandroid.core.bean.main.collect.FeedArticleData;
-import com.lws.wanandroid.core.bean.navigation.NavigationListData;
+import com.lws.wanandroid.model.bean.ArticleBean;
+import com.lws.wanandroid.model.bean.NavigationListData;
 import com.lws.wanandroid.utils.CommonUtils;
 import com.lws.wanandroid.utils.JudgeUtil;
 import com.zhy.view.flowlayout.FlowLayout;
@@ -31,10 +31,10 @@ public class NavigationAdapter extends BaseQuickAdapter<NavigationListData, Base
             helper.setText(R.id.item_navigation_tv, item.getName());
         }
         TagFlowLayout mTagFlowLayout = helper.getView(R.id.item_navigation_flow_layout);
-        List<FeedArticleData> mArticles = item.getArticles();
-        mTagFlowLayout.setAdapter(new TagAdapter<FeedArticleData>(mArticles) {
+        List<ArticleBean> mArticles = item.getArticles();
+        mTagFlowLayout.setAdapter(new TagAdapter<ArticleBean>(mArticles) {
             @Override
-            public View getView(FlowLayout parent, int position, FeedArticleData feedArticleData) {
+            public View getView(FlowLayout parent, int position, ArticleBean feedArticleData) {
                 TextView tv = (TextView) LayoutInflater.from(parent.getContext()).inflate(R.layout.flow_layout_tv,
                         mTagFlowLayout, false);
                 if (feedArticleData == null) {
@@ -54,7 +54,7 @@ public class NavigationAdapter extends BaseQuickAdapter<NavigationListData, Base
         });
     }
 
-    private void startNavigationPager(View view, int position1, FlowLayout parent2, List<FeedArticleData> mArticles) {
+    private void startNavigationPager(View view, int position1, FlowLayout parent2, List<ArticleBean> mArticles) {
         ActivityOptions options = ActivityOptions.makeScaleUpAnimation(view,
                 view.getWidth() / 2,
                 view.getHeight() / 2,
